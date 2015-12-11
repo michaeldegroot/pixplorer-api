@@ -1,5 +1,4 @@
 var request = require('request');
-var scraper = require('scraper');
 var cheerio = require('cheerio');
 var fs = require('fs');
 var path = require('path');
