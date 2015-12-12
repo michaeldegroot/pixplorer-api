@@ -1,4 +1,4 @@
-# google-image-scraper
+# scrapy-image
 [![](https://david-dm.org/michaeldegroot/google-image-scraper.svg)](https://david-dm.org/michaeldegroot/google-image-scraper)
 [![](https://travis-ci.org/michaeldegroot/google-image-scraper.svg?branch=master)](https://travis-ci.org/michaeldegroot/google-image-scraper)
 [![](https://coveralls.io/repos/michaeldegroot/google-image-scraper/badge.svg?branch=master&service=github)](https://coveralls.io/github/michaeldegroot/google-image-scraper?branch=master)
