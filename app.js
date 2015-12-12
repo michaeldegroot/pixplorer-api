@@ -5,19 +5,19 @@ var cheerio = require('cheerio')
 var fs = require('fs')
 var path = require('path')
 var http = require('http')
-var sha256 = require('sha256');
+var sha256 = require('sha256')
 var options = {api:"pixplorer"}
 
 exports.scraper = function(sets){
   if(sets.api){
-    if(sets.api != "pixplorer" && sets.api != "google") throw new Error("Unknown api: "+sets.api);
+    if(sets.api != "pixplorer" && sets.api != "google") throw new Error("Unknown api: "+sets.api)
   }
   options = sets
 }
 
 exports.search = function(data,cb){
-  if(!data.size) setSize("medium");
-  if(data.size) setSize(data.size);
+  if(!data.size) setSize("medium")
+  if(data.size) setSize(data.size)
   if(!data.search) return(cb("Please define what you want to search",null))
   if(!cb) throw new Error("No callback defined")
   getResponse(data.search,function(err,response){
@@ -87,7 +87,7 @@ function scrapImage(body,cb){
 }
 
 function saveImage(data,cb){
-  var filename = sha256(data.img) + path.extname(data.img.split("%")[0].split("?")[0]);
+  var filename = sha256(data.img) + path.extname(data.img.split("%")[0].split("?")[0])
   var stream = request.get(data.img).on('error', function(err) {
     return(cb(err,null))
   }).pipe(fs.createWriteStream(path.join(data.save,filename)))
