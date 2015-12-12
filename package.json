@@ -1,5 +1,5 @@
 {
-  "name": "google-image-search",
+  "name": "google-image-scraper",
   "version": "0.0.1",
   "description": "Search for images on google",
   "main": "app",
