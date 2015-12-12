@@ -76,21 +76,21 @@ function scrapImage(body,cb){
     try {
       var body = JSON.parse(body)
     } catch (e) {
-			return(cb(e,null))
-		}
-		var images = []
-		for(var i=0;i<body.images.length;i++){
-			images.push(body.images[i].imageurl)
-		}
-		cb(null,images)
-	}
+      return(cb(e,null))
+    }
+    var images = []
+    for(var i=0;i<body.images.length;i++){
+      images.push(body.images[i].imageurl)
+    }
+    cb(null,images)
+  }
 }
 
 function saveImage(data,cb){
-	var filename = sha256(data.img) + path.extname(data.img.split("%")[0].split("?")[0]);
-	var stream = request.get(data.img).on('error', function(err) {
+  var filename = sha256(data.img) + path.extname(data.img.split("%")[0].split("?")[0]);
+  var stream = request.get(data.img).on('error', function(err) {
     return(cb(err,null))
-	}).pipe(fs.createWriteStream(path.join(data.save,filename)))
+  }).pipe(fs.createWriteStream(path.join(data.save,filename)))
   stream.on('finish', function () {
     cb(null,filename)
   })
