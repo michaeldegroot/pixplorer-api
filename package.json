@@ -1,7 +1,7 @@
 {
-  "name": "google-image-scraper",
+  "name": "scrapy-image",
   "version": "0.0.1",
-  "description": "Search for images on google",
+  "description": "Scraps image search websites or api's and returns a list of 20 image URL's",
   "main": "app",
   "scripts": {
     "test": "mocha",
