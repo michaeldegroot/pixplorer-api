@@ -35,9 +35,9 @@ scrapyImage.search({search:"cat"}, function(err, data){
 ___
 ## API
 
-###  .search(data, callback)
+###  .search(options, callback)
 ```js
-data:       Object      // Object holding search query parameters (search, size, save)
+options:    Object      // Object holding search query parameters (search, size, save)
 callback:   Function    // Callback will return as first parameter error and second the img URL's array
 ````
 
@@ -71,6 +71,21 @@ scrapyImage.search({search:"dog",size:"large"},function(err,data){
 ``` 
 *You can choose to search for small, medium or large images*
 
+###  .scraper(options)
+```js
+options:    Object      // Object holding options for scrapy-image
+````
+*If you want to change the way scrapy-image gets the images. Use the scraper function before calling the search function*
+
+__Example__ Using google image scrape
+```javascript
+scrapyImage.scraper({api:"google"})
+```
+
+__Example__ Using [pixplorer](http://pixplorer.co.uk/)  api
+```javascript
+scrapyImage.scraper({api:"pixplorer"})
+```
 ___
 ## Contact
 You can contact me at specamps@gmail.com

@@ -1,6 +1,6 @@
 {
   "name": "scrapy-image",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Scraps image search websites or api's and returns a list of 20 image URL's",
   "main": "app",
   "scripts": {
