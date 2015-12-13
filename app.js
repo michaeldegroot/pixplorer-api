@@ -61,9 +61,9 @@ function saveImage(data,cb){
   var stream = request.get(data.img).on('error', function(err) {
     return(cb(err,null))
   }).pipe(fs.createWriteStream(path.join(data.save,filename))).on('finish', function () {
-      cb(null,filename).on('error', function(err) {
-      return(cb(err,null))
-    })
+      cb(null,filename)
+  }).on('error', function(err) {
+    return(cb(err,null))
   })
 }
 

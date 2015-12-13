@@ -1,6 +1,6 @@
 {
   "name": "pixplorer-api",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Retrieves data from the pixplorer api",
   "main": "app",
   "scripts": {
@@ -8,10 +8,15 @@
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
     "coveralls": "npm bin /istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/* && node node_modules/coveralls/bin/coveralls.js < coverage/lcov.info"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:michaeldegroot/pixplorer-api.git"
+  },
   "keywords": [
-    "google",
+    "pixplorer",
     "image",
-    "search"
+    "search",
+    "api"
   ],
   "author": "Michael de Groot <specamps@gmail.com>",
   "license": "MIT",
