@@ -5,6 +5,7 @@ var fs = require('fs')
 var path = require('path')
 var http = require('http')
 var sha256 = require('sha256')
+var not = require('nott')
 
 var options = {}
 
@@ -13,6 +14,8 @@ exports.search = function(data,cb){
   if(not(data.size)) setSize("tb")
   if(not(data.search)) return(cb("Please define what you want to search",null))
   if(data.size) setSize(data.size)
+  options.amount = 20;
+  if(data.amount) options.amount = data.amount;
   getResponse(data.search,function(err,response){
     if(not(response)) return(cb(err,null))
     scrapImage(response.body,function(err,imgs){
@@ -36,7 +39,7 @@ function setSize(set){
 }
 
 function getResponse(search,cb){
-  request('http://api.pixplorer.co.uk/image?word='+search+'&amount=20&size='+options.size, function (err, response, body) {
+  request('http://api.pixplorer.co.uk/image?word='+search+'&amount='+options.amount+'&size='+options.size, function (err, response, body) {
     if (err) return(cb(err,null))
     if(response.statusCode != 200) return(cb("HTTP code is not giving a 200. Cannot continue, current HTTP code: "+response.statusCode),null)
     cb(null, {response:response,body:body})
@@ -65,8 +68,4 @@ function saveImage(data,cb){
   }).on('error', function(err) {
     return(cb(err,null))
   })
-}
-
-function not(val){
-    return (val==null || val===false || val==undefined)
 }

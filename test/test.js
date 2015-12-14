@@ -14,10 +14,16 @@ describe("API", function(){
       done();
     });
   });
+  it(".search only 1 result", function(done){
+    scrapyImage.search({search:"test",amount:1},function(err,data){
+      assert.equal(data.length,1);
+      done();
+    });
+  });
   it(".search and save to file", function(done){
     scrapyImage.search({search:"dog",save:"./test"},function(err,data){
       if(unlink) fs.unlinkSync("./test/"+data);
-      assert.equal(err,null);
+      assert.equal(data.length,64);
       done();
     });
   });
@@ -33,25 +39,25 @@ describe("API", function(){
   });
   it(".search large image", function(done){
     scrapyImage.search({search:"test",size:"large"},function(err,data){
-      assert.equal(err,null);
+      assert.equal(data.length,20);
       done();
     });
   });
   it(".search medium image", function(done){
     scrapyImage.search({search:"test",size:"medium"},function(err,data){
-      assert.equal(err,null);
+      assert.equal(data.length,20);
       done();
     });
   });
   it(".search small image", function(done){
     scrapyImage.search({search:"test",size:"small"},function(err,data){
-      assert.equal(err,null);
+      assert.equal(data.length,20);
       done();
     });
   });
   it(".search thumbnail image", function(done){
     scrapyImage.search({search:"test",size:"thumbnail"},function(err,data){
-      assert.equal(err,null);
+      assert.equal(data.length,20);
       done();
     });
   });
