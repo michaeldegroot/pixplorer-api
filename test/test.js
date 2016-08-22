@@ -38,7 +38,8 @@ describe("API", function(){
       });
   });
   it(".search large image", function(done){
-    scrapyImage.search({search:"test",size:"large"},function(err,data){
+    scrapyImage.search({search:"asdf",size:"large"},function(err,data){
+      console.log(data);
       assert.equal(data.length,20);
       done();
     });
